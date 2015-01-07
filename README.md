@@ -265,26 +265,23 @@ In cases where method calls are being chained and the code does not fit on a sin
 
 ```coffeescript
 [1..3]
-  .map((x) -> x * x)
-  .concat([10..12])
-  .filter((x) -> x < 11)
-  .reduce((x, y) -> x + y)
+  .map (x) -> x * x
+  .concat [10..12]
+  .filter (x) -> x < 11
+  .reduce (x, y) -> x + y
 ```
 
-When calling functions, choose to omit or include parentheses in such a way that optimizes for readability. Keeping in mind that "readability" can be subjective, the following examples demonstrate cases where parentheses have been omitted or included in a manner that the community deems to be optimal:
+When calling functions with parameters, you should generally omit parentheses:
 
 ```coffeescript
-baz 12
+add 1, 2
+invent 'cool stuff'
+```
 
-brush.ellipse x: 10, y: 20 # Braces can also be omitted or included for readability
+Except when they are nested:
 
-foo(4).bar(8)
-
-obj.value(10, 20) / obj.value(20, 10)
-
-print inspect value
-
-new Tag(new Value(a, b), new Arg(c))
+```coffeescript
+sum add(1, 2), add(2,4)
 ```
 
 You will sometimes see parentheses used to group functions (instead of being used to group function parameters). Examples of using this style (hereafter referred to as the "function grouping style"):
