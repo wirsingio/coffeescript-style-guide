@@ -284,30 +284,18 @@ Except when they are nested:
 sum add(1, 2), add(2,4)
 ```
 
-You will sometimes see parentheses used to group functions (instead of being used to group function parameters). Examples of using this style (hereafter referred to as the "function grouping style"):
-
-```coffeescript
-($ '#selektor').addClass 'klass'
-
-(foo 4).bar 8
-```
-
-This is in contrast to:
-
-```coffeescript
-$('#selektor').addClass 'klass'
-
-foo(4).bar 8
-```
-
-In cases where method calls are being chained, some adopters of this style prefer to use function grouping for the initial call only:
+We don't use the *function grouping style*:
 
 ```coffeescript
 ($ '#selektor').addClass('klass').hide() # Initial call only
 (($ '#selektor').addClass 'klass').hide() # All calls
 ```
 
-The function grouping style is not recommended. However, **if the function grouping style is adopted for a particular project, be consistent with its usage.**
+Instead we write:
+
+```coffeescript
+$('#selektor').addClass('klass').hide()
+```
 
 <a name="strings"/>
 ## Strings
